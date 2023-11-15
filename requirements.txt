@@ -1,6 +1,6 @@
 apppath[all]
-warg[all]
-draugr[all]
 black[d]
+draugr[all]
 six
 sorcery
+warg[all]>=1.2.9
