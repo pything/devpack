@@ -1,7 +1,13 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+
 from enum import Enum
 from pathlib import Path
 
 from sorcery import assigned_names
+
+
+__doc__ = "https://semver.org/"
 
 
 class BumpOrderEnum(Enum):
@@ -78,15 +84,15 @@ def version_bump(
         pre = str(pre)
 
     if pre != "":
-        pre = str(pre) + "."
+        pre = f"{str(pre)}."
 
     if post != "":
         if reset_lower_order:
             post = ".".join(["0" for p in post.split(".")])
 
-        post = "." + str(post)
+        post = f".{str(post)}"
 
-    return pre + str(int(ordered) + 1) + post
+    return f"{pre}{str(int(ordered) + 1)}{post}"
 
 
 def bump_version_regex(file_path: Path, search_regex_str: str) -> str:
@@ -94,7 +100,7 @@ def bump_version_regex(file_path: Path, search_regex_str: str) -> str:
         version = f.readlines()
 
     base, _, minor = version.rpartition(".")
-    return base + "." + str(int(minor) + 1)
+    return f"{str(base)}.{str(int(minor) + 1)}"
 
 
 def bump_version_regex_inplace(file_path: Path, search_regex_str: str) -> None:
@@ -102,7 +108,7 @@ def bump_version_regex_inplace(file_path: Path, search_regex_str: str) -> None:
         version = f.readlines()
 
     base, _, minor = version.rpartition(".")
-    new_version = base + "." + str(int(minor) + 1)
+    new_version = f"{str(base)}.{str(int(minor) + 1)}"
 
 
 def bump_version_input() -> str:
@@ -110,7 +116,7 @@ def bump_version_input() -> str:
 
     version = sys.argv[1]
     base, _, minor = version.rpartition(".")
-    return base + "." + str(int(minor) + 1)
+    return f"{base}.{str(int(minor) + 1)}"
 
 
 if __name__ == "__main__":
