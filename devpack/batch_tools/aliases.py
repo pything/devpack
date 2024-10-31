@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-# -*- coding: utf-8 -*-
+
 
 __author__ = "heider"
 __doc__ = r"""
@@ -12,9 +12,9 @@ __doc__ = r"""
 __all__ = ["recursive_detect_import_aliasing"]
 
 from pathlib import Path
-from typing import Iterable, Callable, Optional, Sequence, Mapping, List
+from typing import Callable, Iterable, List, Mapping, Optional, Sequence
 
-from warg.os_utilities.filtering import negate, is_python_package
+from warg.os_utilities.filtering import is_python_package, negate
 
 
 def has_import_aliases(path: Path, *, verbose: bool = False) -> bool:

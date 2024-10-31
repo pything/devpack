@@ -1,5 +1,4 @@
 #!/usr/bin/env python3
-# -*- coding: utf-8 -*-
 
 __author__ = "heider"
 __doc__ = r"""
@@ -12,7 +11,7 @@ __all__ = ["recursive_remove_inits"]
 from pathlib import Path
 from typing import Callable, Iterable, Optional
 
-from warg.os_utilities.filtering import negate, is_python_module
+from warg.os_utilities.filtering import is_python_module, negate
 
 
 def recursive_remove_inits(

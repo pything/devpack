@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-# -*- coding: utf-8 -*-
+
 
 __author__ = "heider"
 __doc__ = r"""
@@ -13,11 +13,11 @@ __all__ = ["AutoAllsModeEnum", "auto_add_all", "is_init_file"]
 
 from enum import Enum
 from pathlib import Path
-from typing import Iterable, Callable, Optional
+from typing import Callable, Iterable, Optional
 
 from sorcery import assigned_names
 
-from warg import is_python_package, negate, import_file
+from warg import import_file, is_python_package, negate
 
 
 class AutoAllsModeEnum(Enum):
@@ -245,8 +245,7 @@ def check_alls(path: Path, *, verbose: bool = True) -> None:
                     print("WARNING library file with empty __all__ declaration")
 
 
-def has_multiple_alls() -> bool:
-    ...
+def has_multiple_alls() -> bool: ...
 
 
 def recursive_check_alls(

@@ -1,5 +1,4 @@
 #!/usr/bin/env python3
-# -*- coding: utf-8 -*-
 
 __author__ = "heider"
 __doc__ = r"""
@@ -12,10 +11,9 @@ __doc__ = r"""
 __all__ = ["recursive_check_for_privates"]
 
 from pathlib import Path
-from typing import Optional, Callable, Iterable
+from typing import Callable, Iterable, Optional
 
 from draugr.os_utilities.linux_utilities.user_utilities import get_username
-
 from warg.os_utilities.filtering import is_python_module, negate
 
 

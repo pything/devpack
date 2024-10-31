@@ -1,11 +1,9 @@
 #!/usr/bin/env python3
-# -*- coding: utf-8 -*-
 
 from enum import Enum
 from pathlib import Path
 
 from sorcery import assigned_names
-
 
 __doc__ = "https://semver.org/"
 
