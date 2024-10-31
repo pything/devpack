@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-# -*- coding: utf-8 -*-
+
 __author__ = "Christian Heider Lindbjerg"
 __doc__ = r"""
            Entry points for package development.
@@ -7,8 +7,7 @@ __doc__ = r"""
 
 import argparse
 
-from devpack.development import pip_install_development_package
-from devpack.development import pip_uninstall_package
+from devpack.development import pip_install_development_package, pip_uninstall_package
 
 
 def install_develop():

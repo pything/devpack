@@ -1,5 +1,4 @@
 #!/usr/bin/env python3
-# -*- coding: utf-8 -*-
 
 __author__ = "heider"
 __doc__ = r"""
@@ -11,7 +10,7 @@ __all__ = ["is_missing_typing_hints"]
 
 import subprocess
 from pathlib import Path
-from typing import Optional, Iterable, Callable, Sequence
+from typing import Callable, Iterable, Optional, Sequence
 
 
 def is_missing_typing_hints(

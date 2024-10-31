@@ -1,7 +1,5 @@
-# -*- coding: utf-8 -*-
-import draugr
-
 import apppath
+import draugr
 import warg
 
 print(warg.__version__)

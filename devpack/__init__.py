@@ -1,26 +1,18 @@
 #!/usr/bin/env python3
-# -*- coding: utf-8 -*-
 
-try:
-    from importlib.resources import files
-    from importlib.metadata import PackageNotFoundError
-except (ModuleNotFoundError, ImportError) as e:
-    from importlib_metadata import PackageNotFoundError
-    from importlib_resources import files
 
-from warg import package_is_editable, clean_string, get_version
+from pathlib import Path
 from apppath import AppPath
+from warg import clean_string, get_version, package_is_editable
 
 __project__ = "devpack"
 __author__ = "Christian Heider Lindbjerg"
-__version__ = "0.1.0"
+__version__ = "0.1.1"
 __doc__ = """
 Created on 15/04/2020
 
 @author: cnheider
 """
-
-from typing import Any
 
 __all__ = [
     "PROJECT_APP_PATH",
@@ -40,12 +32,27 @@ PROJECT_AUTHOR = clean_string(__author__)
 PROJECT_APP_PATH = AppPath(app_name=PROJECT_NAME, app_author=PROJECT_AUTHOR)
 PROJECT_ORGANISATION = clean_string("Pything")
 
-PACKAGE_DATA_PATH = files(PROJECT_NAME) / "data"
-
+import_issue_found = False
 try:
-    DEVELOP = package_is_editable(PROJECT_NAME)
-except PackageNotFoundError as e:
-    DEVELOP = True
+    from importlib.resources import files
+    from importlib.metadata import PackageNotFoundError
+except:
+    try:
+        from importlib_metadata import PackageNotFoundError
+        from importlib_resources import files
+    except:
+        import_issue_found = True
+
+if import_issue_found:
+    PACKAGE_DATA_PATH = Path(__file__).parent / "data"
+    DEVELOP = False
+else:
+    PACKAGE_DATA_PATH = files(PROJECT_NAME) / "data"
+
+    try:
+        DEVELOP = package_is_editable(PROJECT_NAME)
+    except PackageNotFoundError as e:
+        DEVELOP = True
 
 __version__ = get_version(__version__, append_time=DEVELOP)
 

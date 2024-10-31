@@ -1,5 +1,4 @@
 #!/usr/bin/env python3
-# -*- coding: utf-8 -*-
 
 __author__ = "heider"
 __doc__ = r"""
@@ -15,7 +14,7 @@ from typing import Callable, Iterable, Optional
 
 from sorcery import assigned_names
 
-from warg.os_utilities.filtering import negate, is_python_package
+from warg.os_utilities.filtering import is_python_package, negate
 
 
 class TouchModeEnum(Enum):
